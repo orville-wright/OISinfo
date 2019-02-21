@@ -1,0 +1,56 @@
+
+
+https://ois-orinda-ca.schoolloop.com/portal/login?etarget=login_form
+x-www-form-urlencoded
+POST
+status code: 302
+
+response headers
+=======================
+cf-ray: 		4a9203e7597b92a0-SJC
+location: 		https://ois-orinda-ca.schoolloop.com
+
+request headers
+=================
+:authourity: 	ois-orinda-ca.schoolloop.com
+:method:		POST
+:path: 			/portal/login?etarget=login_form
+:scheme:		https
+accept: 		text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+content-type: 	application/x-www-form-urlencoded
+cookie:			__cfduid=d539d8b315d0e783389ff6f769dfd1caf1548960295;
+				slid=1548960295301;
+				__cfruid=ed3aa152d4ee46887eaaed2871eb988fe5cd4fa1-1550173174;
+				JSESSIONID=3ajonqkr5sgdsshy5sc7ke7x
+origin:			https://ois-orinda-ca.schoolloop.com
+user-agent: 	Mozilla/5.0 (Windows NT 10.0;
+				Win64;
+				x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+
+
+FORM DATA
+==========
+login_name: XXXXXX
+password: YYYYYY
+form_data_id: 8793128262805231
+event_override: login
+
+login_name=		XXXXXX&
+				password=YYYYYY&
+				redirect=&
+				forward=&
+				login_form_reverse=&
+				form_data_id=8793128262805231&sort=&
+				reverse=&
+				login_form_sort=&
+				event_override=login&
+				login_form_filter=&
+				login_form_letter=&
+				return_url=&
+				login_form_page_index=&
+				login_form_page_item_count=
+
+
+https://ois-orinda-ca.schoolloop.com/
+x-www-form-urlencoded
+
