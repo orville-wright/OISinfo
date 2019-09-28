@@ -38,8 +38,7 @@ func Init(
 		log.Ldate|log.Ltime|log.Lshortfile)
 
 	Info = log.New(infoHandle,
-		"INFO: ",
-		log.Ldate|log.Ltime)
+		"INFO: ", log.Ltime)
 
 	Warning = log.New(warningHandle,
 		"WARNING: ",
@@ -62,54 +61,55 @@ func processElement(index int, element *goquery.Selection) {
 
 func hack1() {
 	// XXXX
-	log.Print("===================================")
-	log.Print("*** #1.0 starting...")
-	login_name := "badusername"
-	password := "badpassword"
+	Info.Print("===================================")
+	Info.Print("*** #1.0 starting...")
+	loginname := "no_username"
+	password := "no_password"
 	loginURL := "https://ois-orinda-ca.schoolloop.com/portal/login?etarget=login_form"
 	//loginURL := "https://ois-orinda-ca.schoolloop.com/portal/login"
 	urlData := url.Values{}
-	urlData.Set("login_name", login_name)
+	urlData.Set("loginname", loginname)
 	urlData.Set("password", password)
-	log.Print("*** #1.1 : URL: ", loginURL)
-	log.Printf("*** #1.2 : usernme / password: %s / %s", login_name, password)
-	log.Print("*** #1.3 : POSTform now")
+	Info.Print("- #1.1 : URL: ", loginURL)
+	Info.Printf("- #1.2 : usernme / password: %s / %s", loginname, password)
+	Info.Print("- #1.3 : POSTform now")
 	resp4, err := http.PostForm(loginURL, urlData)
 	//resp4, err := http.Post(loginURL, "text/html", urlData)
 
-	Info.Printf("*** #1.4 POSTform - using URL: %s", resp4.Request.URL)
-	Info.Printf("*** #1.4 POSTform - using URLdata: %v", urlData)
-	Info.Println("*** #1.5 POSTform - Status...", resp4.Status)
-	Info.Println("*** #1.5 POSTform - req form values...", resp4.Request.Form)
+	Info.Printf("- #1.4 POSTform - using URL: %s", resp4.Request.URL)
+	Info.Printf("- #1.4 POSTform - using URLdata: %v", urlData)
+	Info.Println("- #1.5 POSTform - Status...", resp4.Status)
+	Info.Println("- #1.5 POSTform - req form values...", resp4.Request.Form)
 
 	if err != nil {
 		log.Fatal(err)
 	} else {
-		Info.Println("*** #1.6 POSTform ERR Status resp4/auto-req ...", err)
+		Info.Println("- #1.6 POSTform ERR Status resp4/auto-req ...", err)
 	}
 
-	fmt.Println("*** XXXX HACK #1 Resp status : ", resp4.Status)
+	Info.Println("- #1 Resp status : ", resp4.Status)
 	//fmt.Println("Header: ", resp4.Header)
 	//fmt.Println("Body: ", resp4.Body)
-	fmt.Println("*** XXXX HACK #1 Resp Header values")
-	i := 1
+	Info.Println("- #1 Resp Header values")
+	i := 0
 	for key, value := range resp4.Header {
-		fmt.Println(i, "-", key, ":", value)
+		fmt.Println("cookie: ", i, "-", key, ":", value)
 		i++
 	}
 
-	log.Print("*** XXXX HACK #1 Resp Cookies...")
+	Info.Print("- #1 Resp Cookies...")
 	for ckey, cookie := range resp4.Cookies() {
 		fmt.Println(ckey, ":", "Cookie:", cookie.Name, " ", cookie.Value)
 	}
 
-	log.Print("*** XXXX HACK #1 stop...")
+	Info.Print("- #1 stop...")
 	defer resp4.Body.Close()
 }
 
 // end hack1
 
 func hack2() {
+	log.Printf(" ")
 	log.Printf("\n===================================")
 	log.Print("*** XXXX HACK #2 starting...")
 
@@ -142,6 +142,7 @@ func hack2() {
 // end hack2
 
 func hack3() {
+	log.Printf(" ")
 	log.Printf("\n===================================")
 	log.Print("***  HACK 3.0 starting...")
 	log.Print("*** #3.1 init empty GET client/Req...")
@@ -203,6 +204,7 @@ func hack3() {
 // end hack3
 
 func hack4() {
+	log.Printf(" ")
 	log.Printf("\n===================================")
 	log.Print("*** XXXX HACK #4 starting...")
 	log.Print("*** init empty GET client/Req...")
@@ -227,6 +229,7 @@ func hack4() {
 func main() {
 	Init(ioutil.Discard, os.Stdout, os.Stdout, os.Stderr)
 
+	log.Printf(".")
 	Info.Println("*** In main()")
 	/*
 		options := cookiejar.Options{
